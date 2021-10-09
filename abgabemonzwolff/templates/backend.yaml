@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - image: "idi2019.azurecr.io/dwo1327-gb-b"
+        args: [ConnectionStrings:dbconnection=Server=mariadb;Database=guestbook;User Id=root;Password=root;]
+        name: backend
+        env:
+          # Use secret in real usage
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        ports:
+        - containerPort: 8080
+          name: backend

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - image: "idi2019.azurecr.io/pmo5502-aufgabea"
+        name: frontend
+        env:
+          # Use secret in real usage
+        - name: tbd
+          value: tbd
+        ports:
+        - containerPort: 80
+          name: frontend     
