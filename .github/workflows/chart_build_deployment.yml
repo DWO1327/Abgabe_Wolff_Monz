@@ -22,17 +22,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
-      - name: loginAZ
-        uses: azure/docker-login@v1
-        with: 
-         login-server: idi2019.azurecr.io
-         username: ${{ secrets.REG_USERNAME }}
-         password: ${{ secrets.REG_PASSWORD }}
-         
-      - name: Run a one-line script
-        run: az login
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
+      - name: Get_Cred
         run: az aks get-credentials --resource-group IDI2019 --name kubernetes-11
