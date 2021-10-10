@@ -22,6 +22,10 @@ spec:
           value: root
         - name: MYSQL_DATABASE
           value: guestbook
+        - name: MYSQL_USER
+          value: "guestbook"
+        - name: MYSQL_PASSWORD
+          value: "password"
         ports:
         - containerPort: 3306
           name: mariadb
