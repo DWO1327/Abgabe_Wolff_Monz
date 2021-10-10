@@ -23,12 +23,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      #- name: loginAZ
-      #  uses: azure/docker-login@v1
-      #  with: 
-      #   login-server: idi2019.azurecr.io
-      #   username: ${{ secrets.REG_USERNAME }}
-      #   password: ${{ secrets.REG_PASSWORD }}
+      - name: loginAZ
+        uses: azure/docker-login@v1
+        with: 
+         login-server: idi2019.azurecr.io
+         username: ${{ secrets.REG_USERNAME }}
+         password: ${{ secrets.REG_PASSWORD }}
          
       - name: Azure Login
         run: az login
