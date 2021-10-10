@@ -15,11 +15,12 @@ spec:
     spec:
       containers:
       - image: "idi2019.azurecr.io/pmo5502-aufgabea"
+        #args: [ConnectionStrings:BackendService=http://backendservice:8080]
         name: frontend
         env:
           # Use secret in real usage
-        - name: tbd
-          value: tbd
+        - name: ConnectionStrings__BackendService
+          value: "http://backendservice:80"
         ports:
         - containerPort: 80
-          name: frontend     
+          name: frontend
