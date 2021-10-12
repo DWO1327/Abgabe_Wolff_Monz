@@ -27,10 +27,3 @@ jobs:
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.k8s }} # Use secret (https://developer.github.com/actions/managing-workflows/storing-secrets/
-         
-      #- name: Azure Login
-      #  run: az login
-
-      # Runs a single command using the runners shell
-      - name: Get_Cred
-        run: az aks get-credentials --resource-group IDI2019 --name kubernetes-11
