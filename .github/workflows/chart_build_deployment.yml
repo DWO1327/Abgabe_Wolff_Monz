@@ -31,5 +31,5 @@ jobs:
           kubeconfig: ${{ secrets.k8s }} # Use secret (https://developer.github.com/actions/managing-workflows/storing-secrets/
           
       - name: CommitChart
-        run: helm upgrade Abgabe_Monz_Wolff abgabemonzwolff
+        run: helm upgrade AbgabeMonzWolff abgabemonzwolff
     
