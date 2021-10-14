@@ -30,6 +30,6 @@ jobs:
           method: kubeconfig
           kubeconfig: ${{ secrets.k8s }} # Use secret (https://developer.github.com/actions/managing-workflows/storing-secrets/
           
-      - name: Configure functions
-        run: helm install dummy abgabemonzwolff
+      - name: CommitChart
+        run: helm upgrade Abgabe_Monz_Wolff abgabemonzwolff
     
