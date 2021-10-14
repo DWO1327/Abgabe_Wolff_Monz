@@ -31,5 +31,5 @@ jobs:
           kubeconfig: ${{ secrets.k8s }} # Use secret (https://developer.github.com/actions/managing-workflows/storing-secrets/
           
       - name: Configure functions
-        run: helm install Abgabe_Monz_Wolff Chart.yaml
+        run: helm install Abgabe_Monz_Wolff ./abgabemonzwolff/Chart.yaml
     
