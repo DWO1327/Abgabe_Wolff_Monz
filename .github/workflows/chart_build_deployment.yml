@@ -33,8 +33,13 @@ jobs:
       - name: lint
         run: helm lint abgabemonzwolff
           
+      
       - name: CommitChart
         run: helm upgrade -i abgabemonzwolff abgabemonzwolff -i
+        
+      - name: test
+        run: helm test abgabemonzwolff
+      
       
 
     
