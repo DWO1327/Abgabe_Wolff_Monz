@@ -30,6 +30,11 @@ jobs:
           method: kubeconfig
           kubeconfig: ${{ secrets.k8s }} # Use secret (https://developer.github.com/actions/managing-workflows/storing-secrets/
           
+      - name: lint
+        run: helm lint abgabemonzwolff
+          
       - name: CommitChart
         run: helm upgrade -i abgabemonzwolff abgabemonzwolff -i
+      
+
     
