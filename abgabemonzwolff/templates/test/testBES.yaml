@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "backend-test-connection"
+  name: "backendservice-test-connection"
   labels:
     app.kubernetes.io/name: backend
     helm.sh/chart: Chart
@@ -13,5 +13,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args:  ['http://localhost:80/guestbook/entries']
+      args:  ['http://backendservice:80/guestbook/entries']
   restartPolicy: Never
