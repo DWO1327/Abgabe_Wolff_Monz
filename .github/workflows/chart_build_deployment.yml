@@ -21,9 +21,15 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
       
-      - uses: azure/k8s-set-context@v1
+      - name: Login K8SCluster
+        uses: azure/k8s-set-context@v1
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.k8s }} # Use secret (https://developer.github.com/actions/managing-workflows/storing-secrets/
+          
+      - name: Configure functions
+        run: helm install Abgabe_Monz_Wolff
+    
