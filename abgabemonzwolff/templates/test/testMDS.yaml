@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "mariadb-credentials-test"
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+  - name: mariadb
+    image: mariadb
+    env:
+    - name: MARIADB_HOST
+      value: mariadb
+    - name: MARIADB_PORT
+      value: "3306"
+    - name: DATABASE_NAME
+      value: guestbook
+    - name: DATABASE_USER
+      value: guestbook
+    - name: DATABASE_PASSWORD
+      value: password
+    command: ["sh", "-c", "mysql --host=$MARIADB_HOST --port=$MARIADB_PORT --user=$DATABASE_USER --password=$DATABASE_PASSWORD"]
+  restartPolicy: Never
