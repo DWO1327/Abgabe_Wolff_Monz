@@ -31,11 +31,11 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           value: root
         - name: MYSQL_DATABASE
-          value: echo $username
+          value: $usernamesecret
         - name: MYSQL_USER
-          value: echo $usernamesecret
+          value: $usernamesecret
         - name: MYSQL_PASSWORD
-          value: echo $passwordsecret
+          value: $passwordsecret
         ports:
         - containerPort: 3306
           name: mariadb
