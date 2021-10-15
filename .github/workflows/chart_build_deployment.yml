@@ -35,7 +35,7 @@ jobs:
           
       
       - name: CommitChart
-        run: helm upgrade -i abgabemonzwolff abgabemonzwolff -i
+        run: helm upgrade -i abgabemonzwolff abgabemonzwolff
         
       - name: sleep
         run: sleep 20
