@@ -41,11 +41,11 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           value: root
         - name: MYSQL_DATABASE
-          value: echo $usernamesecret
+          value: {{ .Values.database.name }}
         - name: MYSQL_USER
-          value: echo $usernamesecret
+          value: {{ .Values.database.name }}
         - name: MYSQL_PASSWORD
-          value: echo $passwordsecret
+          value: {{ .Values.database.password }}
         ports:
         - containerPort: 3306
           name: mariadb
