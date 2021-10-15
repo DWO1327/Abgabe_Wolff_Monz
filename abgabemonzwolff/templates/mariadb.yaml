@@ -18,14 +18,24 @@ spec:
         name: mariadb
         env:
           # Use secret in real usage
+        - name: usernamesecret
+            valueFrom:
+              secretKeyRef:
+                name: secret-maria
+                key: username
+        - name: passwordsecret
+            valueFrom:
+              secretKeyRef:
+                name: secret-maria
+                key: password
         - name: MYSQL_ROOT_PASSWORD
           value: root
         - name: MYSQL_DATABASE
-          value: {{ .Values.database.name }}
+          value: echo $username
         - name: MYSQL_USER
-          value: {{ .Values.database.user }}
+          value: echo $usernamesecret
         - name: MYSQL_PASSWORD
-          value: {{ .Values.database.password }}
+          value: echo $passwordsecret
         ports:
         - containerPort: 3306
           name: mariadb
@@ -36,3 +46,6 @@ spec:
       - name: mariadb-persistent-storage
         persistentVolumeClaim:
           claimName: mariadb-pv-claim
+      - name: foo
+        secret:
+          secretName: mysecret
