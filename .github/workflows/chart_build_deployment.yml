@@ -33,6 +33,8 @@ jobs:
       - name: lint
         run: helm lint abgabemonzwolff
           
+      - name: create Secret
+        run: kubectl create secret generic secret-maria --from-literal=username=guestbook --from-literal=password=password
       
       - name: CommitChart
         run: helm upgrade -i abgabemonzwolff abgabemonzwolff
