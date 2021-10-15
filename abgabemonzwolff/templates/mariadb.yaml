@@ -21,11 +21,11 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           value: root
         - name: MYSQL_DATABASE
-          value: guestbook
+          value: {{ .Values.database.name }}
         - name: MYSQL_USER
-          value: "guestbook"
+          value: {{ .Values.database.user }}
         - name: MYSQL_PASSWORD
-          value: "password"
+          value: {{ .Values.database.password }}
         ports:
         - containerPort: 3306
           name: mariadb

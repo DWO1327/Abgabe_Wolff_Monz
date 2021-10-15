@@ -80,3 +80,9 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+database:
+  name: guestbook
+  user: guestbook
+  password: password
+
