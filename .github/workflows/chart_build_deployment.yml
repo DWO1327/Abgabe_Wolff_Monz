@@ -32,7 +32,10 @@ jobs:
           
       - name: lint
         run: helm lint abgabemonzwolff
-          
+      
+      - name: delete Secret if exists
+        run: kubectl delete secret secret-maria
+      
       - name: create Secret
         run: kubectl create secret generic secret-maria --from-literal=username=guestbook --from-literal=password=password
       
