@@ -17,7 +17,7 @@ spec:
       - image: mariadb
         name: mariadb
         env:
-          # Use secret in real usage
+          # Use secret in real usage test
         #- name: usernamesecret
         #    valueFrom:
         #      secretKeyRef:
