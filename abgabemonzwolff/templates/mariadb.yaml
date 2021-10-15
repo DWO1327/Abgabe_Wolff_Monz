@@ -18,6 +18,16 @@ spec:
         name: mariadb
         env:
           # Use secret in real usage
+        #- name: usernamesecret
+        #    valueFrom:
+        #      secretKeyRef:
+        #        name: secret-maria
+        #        key: username
+        #- name: passwordsecret
+        #    valueFrom:
+        #      secretKeyRef:
+        #        name: secret-maria
+        #        key: password
         - name: usernamesecret
             valueFrom:
               secretKeyRef:
@@ -31,11 +41,11 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           value: root
         - name: MYSQL_DATABASE
-          value: $usernamesecret
+          value: echo $usernamesecret
         - name: MYSQL_USER
-          value: $usernamesecret
+          value: echo $usernamesecret
         - name: MYSQL_PASSWORD
-          value: $passwordsecret
+          value: echo $passwordsecret
         ports:
         - containerPort: 3306
           name: mariadb
