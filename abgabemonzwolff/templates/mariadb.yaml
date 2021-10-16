@@ -17,17 +17,6 @@ spec:
       - image: mariadb
         name: mariadb
         env:
-          # Use secret in real usage test
-        #- name: usernamesecret
-        #    valueFrom:
-        #      secretKeyRef:
-        #        name: secret-maria
-        #        key: username
-        #- name: passwordsecret
-        #    valueFrom:
-        #      secretKeyRef:
-        #        name: secret-maria
-        #        key: password
         - name: MYSQL_ROOT_PASSWORD
           valueFrom: 
               secretKeyRef:

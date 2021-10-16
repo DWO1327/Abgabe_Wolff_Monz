@@ -15,12 +15,19 @@ spec:
     spec:
       containers:
       - image: "idi2019.azurecr.io/dwo1327-gb-b"
-        args: [ConnectionStrings:dbconnection=Server=mariadb;Database={{ .Values.database.name }};User Id={{ .Values.database.name }};Password={{ .Values.database.password }};]
+        args: [ConnectionStrings:dbconnection=Server=mariadb;Database={{ .Values.database.name }};User Id={{ .Values.database.name }};Password=$(MYSQL_USER_PASSWORD);]
         name: backend
         env:
-          # Use secret in real usage
         - name: MYSQL_ROOT_PASSWORD
-          value: root
+          valueFrom: 
+              secretKeyRef:
+                  name: dbpassword
+                  key: rootpassword
+        - name: MYSQL_USER_PASSWORD
+          valueFrom:
+              secretKeyRef:
+                  name: dbpassword
+                  key: password
         ports:
         - containerPort: 8080
           name: backend
