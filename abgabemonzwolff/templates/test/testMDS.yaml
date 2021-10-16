@@ -18,6 +18,9 @@ spec:
     - name: DATABASE_USER
       value: guestbook
     - name: DATABASE_PASSWORD
-      value: password
+      valueFrom: 
+              secretKeyRef:
+                  name: dbpassword
+                  key: password
     command: ["sh", "-c", "mysql --host=$MARIADB_HOST --port=$MARIADB_PORT --user=$DATABASE_USER --password=$DATABASE_PASSWORD"]
   restartPolicy: Never
